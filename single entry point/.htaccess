@@ -1,0 +1,11 @@
+# enable URL rewrite
+RewriteEngine On
+
+# Skip if there is a file 
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Skip if there is a folder 
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# all requests go to  index.php
+RewriteRule (.*) index.php [L,E=PATH_INFO:/$1]
